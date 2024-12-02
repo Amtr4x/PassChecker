@@ -16,13 +16,13 @@ export function ratePassword(password: string): Rate {
       rateSpecialCharacters(password.valueOf()),
     ].reduce((x: number, y: number): number => x + y);
 
-    if (passwordRating < 60) {
+    if (passwordRating < 40) {
       return Rate.WEAK;
-    } else if (passwordRating >= 60 && passwordRating <= 79) {
+    } else if (passwordRating >= 40 && passwordRating <= 59) {
       return Rate.MEDIUM;
-    } else if (passwordRating >= 80 && passwordRating <= 99) {
+    } else if (passwordRating >= 60 && passwordRating <= 89) {
       return Rate.GOOD;
-    } else if (passwordRating >= 100) {
+    } else if (passwordRating >= 90) {
       return Rate.SECURE;
     }
   }
@@ -54,11 +54,11 @@ function rateLength(password: string): number {
   let rating = 0;
 
   if (password.length >= 8) {
-    rating += 5;
+    rating += 10;
   }
 
   if (password.length >= 12) {
-    rating += 10;
+    rating += 20;
   }
 
   return rating;
@@ -76,8 +76,8 @@ function rateUpperCasing(password: string): number {
   const regex: RegExp = /[A-Z]/g;
   const uppersAmount = password.match(regex)?.length ?? 0;
 
-  if (uppersAmount === 1) {
-    rating += 5;
+  if (uppersAmount > 0) {
+    rating += 10;
   }
 
   if (uppersAmount > 1) {
@@ -98,8 +98,8 @@ function rateNumbersInclusion(password: string): number {
   const regex: RegExp = /[0-9]/g;
   const numbersAmount = password.match(regex)?.length ?? 0;
 
-  if (numbersAmount === 1) {
-    rating += 5;
+  if (numbersAmount > 0) {
+    rating += 10;
   }
 
   if (numbersAmount > 1) {
@@ -121,12 +121,12 @@ function rateSpecialCharacters(password: string): number {
   console.log(password.match(regex));
   const specialCharsAmount = password.match(regex)?.length ?? 0;
 
-  if (specialCharsAmount === 1) {
-    rating += 5;
+  if (specialCharsAmount > 0) {
+    rating += 10;
   }
 
   if (specialCharsAmount > 1) {
-    rating += 10;
+    rating += 20;
   }
 
   return rating;
