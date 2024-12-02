@@ -2,8 +2,9 @@
  * Indicates the security level of a given password
  * */
 export enum Rate {
-  WEAK = 0,
-  MEDIUM = 1,
-  GOOD = 2,
-  SECURE = 3,
+  INVALID = 0,
+  WEAK = 1,
+  MEDIUM = 2,
+  GOOD = 3,
+  SECURE = 4,
 }
