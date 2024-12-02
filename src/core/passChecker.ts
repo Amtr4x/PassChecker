@@ -32,3 +32,26 @@ function rateLength(password: string): number {
 
   return rating;
 }
+
+/**
+ * Rate the amount of uppercase characters found
+ * in the password.
+ *
+ * @param password a string representing the user password
+ * @returns a number to represent the upper casing rating
+ * */
+function rateUpperCasing(password: string): number {
+  let rating = 0;
+  const regex: RegExp = /[A-Z]/g;
+  const uppersAmount = password.match(regex)?.length ?? 0;
+
+  if (uppersAmount === 1) {
+    rating += 5;
+  }
+
+  if (uppersAmount > 1) {
+    rating += 10;
+  }
+
+  return rating;
+}
