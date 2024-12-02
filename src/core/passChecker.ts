@@ -118,7 +118,6 @@ function rateNumbersInclusion(password: string): number {
 function rateSpecialCharacters(password: string): number {
   let rating = 0;
   const regex: RegExp = /[^\d\w\s]/g;
-  console.log(password.match(regex));
   const specialCharsAmount = password.match(regex)?.length ?? 0;
 
   if (specialCharsAmount > 0) {
