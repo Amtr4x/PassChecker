@@ -1,3 +1,34 @@
+import { Rate } from "./Rate";
+
+/**
+ * Rate the password provided according to the standard password
+ * security measures.
+ *
+ * @param password a string representing the user password.
+ * @returns a Rate object to represent the security level.
+ * */
+export function ratePassword(password: string): Rate {
+  if (checkValidation(password)) {
+    const passwordRating: number = [
+      rateLength(password).valueOf(),
+      rateUpperCasing(password).valueOf(),
+      rateNumbersInclusion(password).valueOf(),
+      rateSpecialCharacters(password.valueOf()),
+    ].reduce((x: number, y: number): number => x + y);
+
+    if (passwordRating < 60) {
+      return Rate.WEAK;
+    } else if (passwordRating >= 60 && passwordRating <= 79) {
+      return Rate.MEDIUM;
+    } else if (passwordRating >= 80 && passwordRating <= 99) {
+      return Rate.GOOD;
+    } else if (passwordRating >= 100) {
+      return Rate.SECURE;
+    }
+  }
+
+  return Rate.INVALID;
+}
 /**
  * Check in the provided password is valid or not
  *
