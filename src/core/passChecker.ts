@@ -19,9 +19,9 @@ export function ratePassword(password: string): Rate {
     if (passwordRating < 40) {
       return Rate.WEAK;
     } else if (passwordRating >= 40 && passwordRating <= 59) {
-      return Rate.MEDIUM;
+      return Rate.VULNERABLE;
     } else if (passwordRating >= 60 && passwordRating <= 89) {
-      return Rate.GOOD;
+      return Rate.UPGRADABLE;
     } else if (passwordRating >= 90) {
       return Rate.SECURE;
     }

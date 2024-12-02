@@ -4,7 +4,7 @@
 export enum Rate {
   INVALID = 0,
   WEAK = 1,
-  MEDIUM = 2,
-  GOOD = 3,
+  VULNERABLE = 2,
+  UPGRADABLE = 3,
   SECURE = 4,
 }
