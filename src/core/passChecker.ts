@@ -55,3 +55,25 @@ function rateUpperCasing(password: string): number {
 
   return rating;
 }
+
+/**
+ * Rate the amount of numbers included in the password.
+ *
+ * @param password a string representing the user password
+ * @returns a number to represent the numbers inclusion in the password
+ * */
+function rateNumbersInclusion(password: string): number {
+  let rating = 0;
+  const regex: RegExp = /[0-9]/g;
+  const numbersAmount = password.match(regex)?.length ?? 0;
+
+  if (numbersAmount === 1) {
+    rating += 5;
+  }
+
+  if (numbersAmount > 1) {
+    rating += 10;
+  }
+
+  return rating;
+}
