@@ -77,3 +77,26 @@ function rateNumbersInclusion(password: string): number {
 
   return rating;
 }
+
+/**
+ * Rate the amount of special characters included in the password.
+ *
+ * @param password a string representing the user password
+ * @returns a number to represent the special characters amount in the password
+ * */
+function rateSpecialCharacters(password: string): number {
+  let rating = 0;
+  const regex: RegExp = /[^\d\w\s]/g;
+  console.log(password.match(regex));
+  const specialCharsAmount = password.match(regex)?.length ?? 0;
+
+  if (specialCharsAmount === 1) {
+    rating += 5;
+  }
+
+  if (specialCharsAmount > 1) {
+    rating += 10;
+  }
+
+  return rating;
+}
