@@ -15,7 +15,7 @@ async function copyPasswordToClipboard() {
 <template>
   <button
     @click="copyPasswordToClipboard"
-    class="bg-green-200 flex gap-1 p-1 rounded-md hover:scale-105 shadow-md duration-150 active:shadow-sm active:scale-95 shadow-slate-300"
+    class="bg-green-200 flex gap-1 utility-btn"
   >
     <p>Copy</p>
     <IconCopy />

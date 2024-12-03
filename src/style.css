@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .utility-btn {
+    @apply p-1 rounded-md hover:scale-105 shadow-md duration-150 active:shadow-sm active:scale-95 shadow-slate-300;
+  }
+}

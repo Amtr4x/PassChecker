@@ -8,7 +8,7 @@ const props = defineProps({
 
 <template>
   <button
-    class="p-1 rounded-md shadow-md duration-150 active:shadow-sm hover:scale-105 active:scale-95 shadow-slate-300"
+    class="utility-btn"
     :class="props.inputType === 'password' ? 'bg-red-200' : 'bg-green-200'"
   >
     <IconEye v-if="props.inputType === 'password'" />
