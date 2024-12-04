@@ -4,7 +4,7 @@ import { ratePassword } from "../core/passChecker";
 import PasswordInput from "./PasswordInput.vue";
 
 const userPassword = ref("");
-const passwordRating = ref("not valid");
+const passwordRating = ref("");
 const inputType = ref("password");
 const borderColor = ref("transparent");
 
