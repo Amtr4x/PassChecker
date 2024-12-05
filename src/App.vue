@@ -36,7 +36,7 @@ const passwordTips = [
     <p>Made with ❤️ by</p>
     <SocialBadge
       username="Amtr4x"
-      link="https://github.com/@Amtr4x"
+      link="https://github.com/Amtr4x"
       bg-color="bg-purple-600"
       fg-color="text-white"
       :icon-src="githubIcon"
